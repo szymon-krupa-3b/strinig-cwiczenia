@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Szymon Krupa 3b</title>
+</head>
+
+<body>
+    <script>
+        const imie = prompt("Podaj imię");
+        imie.toLowerCase();
+        const reg1 = /[a-ząćęłńóśźż]/;
+        let wynik = 0;
+
+        if (imie.match(reg1)) {
+            if (imie == "kuba") {
+                document.write("Podane imię jest płci męskiej.");
+            } 
+            else if (imie.endsWith("a")) {
+                document.write("Podane imię jest płci żeńskiej.");
+            } 
+            else {
+                document.write("Podane imię jest płci męskiej.");
+            }
+            document.write('<br>' + "Podane imię posiada: " + imie.length + " liter");
+        } 
+
+        else {
+            document.write("Nieprawidłowe imię");
+        }
+
+        function samogloski() {
+            for (let i = 0; i < imie.length; i++) {
+                if (imie[i] == "a" || imie[i] == "e" || imie[i] == "i" || imie[i] == "o" || imie[i] == "u" || imie[i] == "y" || imie[i] == "ą" || imie[i] == "ę" || imie[i] == "ó") {
+                    wynik++;
+                }
+            }
+            return wynik / 2;
+        }
+
+        if (samogloski() == 0) {
+            document.write('<br>' + "Brak samogłosek w imieniu");
+        } else {
+            document.write('<br>' + "W imieniu pojawiają się samogłoski. Jest ich: " + samogloski());
+        }
+    </script>
+</body>
+</html>
